@@ -77,6 +77,6 @@ CREATE TABLE pending_active_rides(
     driver_id INT NULL,
     cost_per_rider DECIMAL(5,2),
     pickup_dist DECIMAL(5,2),
-    requestiong_rider VAR(256) NOT NULL,
+    requestiong_rider VARCHAR(256) NOT NULL,
     ride_id INT NULL
 );
