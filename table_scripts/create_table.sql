@@ -3,7 +3,7 @@ user_id INT AUTO_INCREMENT PRIMARY KEY,
 username VARCHAR(50) NOT NULL,
 email VARCHAR(50) NOT NULL,
 password VARCHAR(50) NOT NULL,
-phone_num CHAR(10) NOT NULL,
+phone_num CHAR(10) NOT NULL
 );
 
 CREATE TABLE driver_info (
@@ -24,11 +24,11 @@ FOREIGN KEY (driver_id) REFERENCES account(user_id)
 CREATE TABLE completed_rides(
 ride_id INT AUTO_INCREMENT PRIMARY KEY,
 driver_id INT NOT NULL,
-rider_id SET NOT NULL,
+rider_id VARCHAR(50) NOT NULL,
 total_distance DECIMAL(5,2) NOT NULL,
 start_time DATETIME NOT NULL,
 end_time DATETIME NOT NULL,
-duration INTERVAL NOT NULL,
+duration TIME NOT NULL,
 start_point VARCHAR(50) NOT NULL,
 destination VARCHAR(50) NOT NULL,
 driver_earnings DECIMAL(5,2) NOT NULL,
@@ -41,7 +41,7 @@ rider_id INT NOT NULL,
 ratee_id INT NOT NULL,
 rating DECIMAL(5,2),
 comment VARCHAR(1000),
-FOREIGN KEY (rider_id) REFERENCES account(user_id)
+FOREIGN KEY (rider_id) REFERENCES account(user_id),
 FOREIGN KEY (ratee_id) REFERENCES account(user_id)
 );
 
@@ -49,10 +49,6 @@ CREATE TABLE completed_rides_by_rider (
 ride_id INT PRIMARY KEY,
 rider_id INT NOT NULL,
 rider_cost DECIMAL(5,2) NOT NULL,
-FOREIGN KEY (ride_id) REFERENCES completed_rides(ride_id)
+FOREIGN KEY (ride_id) REFERENCES completed_rides(ride_id),
 FOREIGN KEY (rider_id) REFERENCES account(user_id)
-);
-
-CREATE TABLE active_rides (
-
 );
