@@ -52,3 +52,5 @@ rider_cost DECIMAL(5,2) NOT NULL,
 FOREIGN KEY (ride_id) REFERENCES completed_rides(ride_id),
 FOREIGN KEY (rider_id) REFERENCES account(user_id)
 );
+
+/* hello */ 
