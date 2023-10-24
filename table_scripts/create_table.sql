@@ -53,3 +53,18 @@ FOREIGN KEY (ride_id) REFERENCES completed_rides(ride_id),
 FOREIGN KEY (rider_id) REFERENCES account(user_id)
 );
 
+CREATE TABLE requested_rides (
+    rider_id INT PRIMARY KEY,
+    ride_id INT NULL,
+    cost DECIMAL(5,2),
+    accepted BOOLEAN NOT NULL,
+    FOREIGN KEY (rider_id) REFERENCES account(user_id)
+)
+
+CREATE TABLE avg_rating(
+    ratee_id INT PRIMARY KEY,
+    rating_count INT NULL,
+    average_rating DECIMAL(5,2),
+    driver_or_rider BOOLEAN NOT NULL,
+    FOREIGN KEY (ratee_id) REFERENCES account(user_id)
+)
