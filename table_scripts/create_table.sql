@@ -45,4 +45,14 @@ FOREIGN KEY (rider_id) REFERENCES account(user_id)
 FOREIGN KEY (ratee_id) REFERENCES account(user_id)
 );
 
+CREATE TABLE completed_rides_by_rider (
+ride_id INT PRIMARY KEY,
+rider_id INT NOT NULL,
+rider_cost DECIMAL(5,2) NOT NULL,
+FOREIGN KEY (ride_id) REFERENCES completed_rides(ride_id)
+FOREIGN KEY (rider_id) REFERENCES account(user_id)
+);
 
+CREATE TABLE active_rides (
+
+);
