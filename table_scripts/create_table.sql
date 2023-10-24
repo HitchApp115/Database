@@ -63,20 +63,22 @@ CREATE TABLE requested_rides (
 
 
 CREATE TABLE avg_rating(
-    ratee_id INT PRIMARY KEY,
+    ratee_id INT NOT NULL,
     rating_count INT NULL,
-    average_rating DECIMAL(5,2),
+    average_rating DECIMAL(4,2),
     driver_or_rider BOOLEAN NOT NULL,
     FOREIGN KEY (ratee_id) REFERENCES account(user_id)
 );
 
 CREATE TABLE pending_active_rides(
+    ride_id INT PRIMARY KEY,
+    driver_id INT NOT NULL,
     start_point VARCHAR(50) NOT NULL,
     driver_dest VARCHAR(50) NOT NULL,
-    riders VARCHAR(256) NOT NULL,
-    driver_id INT NULL,
-    cost_per_rider DECIMAL(5,2),
-    pickup_dist DECIMAL(5,2),
-    requestiong_rider VARCHAR(256) NOT NULL,
-    ride_id INT NULL
+    riders VARCHAR(256),
+    cost_per_rider VARCHAR(256),
+    pickup_dist VARCHAR(256),
+    requesting_rider VARCHAR(256),
+    FOREIGN KEY (driver_id) REFERENCES account(user_id),
+    FOREIGN KEY (ride_id) REFERENCES account(user_id)
 );
