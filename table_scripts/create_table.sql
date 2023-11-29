@@ -9,15 +9,16 @@ phone_num CHAR(10) NOT NULL
 CREATE TABLE driver_info (
 driver_id INT PRIMARY KEY,
 car_model VARCHAR(50) NOT NULL,
+car_make VARCHAR(50) NOT NULL,
 license_plate CHAR(7) NOT NULL,
 license VARCHAR(50) NOT NULL,
 car_year INT NOT NULL,
 seat_count INT NOT NULL,
 car_color VARCHAR(50) NOT NULL,
-driver_picture BLOB NOT NULL,
+driver_picture LONGBLOB NOT NULL,
 insurance INT NOT NULL,
 residency VARCHAR(50) NOT NULL,
-inspection_form BLOB NOT NULL,
+inspection_form LONGBLOB NOT NULL,
 FOREIGN KEY (driver_id) REFERENCES account(user_id)
 );
 
@@ -82,3 +83,4 @@ CREATE TABLE pending_active_rides(
     FOREIGN KEY (driver_id) REFERENCES account(user_id),
     FOREIGN KEY (ride_id) REFERENCES account(user_id)
 );
+
